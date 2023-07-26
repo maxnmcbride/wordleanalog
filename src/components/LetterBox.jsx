@@ -1,10 +1,8 @@
-const LetterBox = () => {
-    const letter = "A"
-    
+const LetterBox = (letter) => {
     return (
         <div className="letter-box">
             <p className="display-letter">
-                {letter}
+                {letter.letter}
             </p>
         </div>
     )
