@@ -41,3 +41,8 @@
 .display-letter {
   font-size: 300%;
 }
+
+/* #main-input {
+  display: flex;
+  flex-direction: column;
+} */
