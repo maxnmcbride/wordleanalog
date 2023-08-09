@@ -4,21 +4,31 @@ import Row from "./components/Row"
 
 function App() {
   const [inputWord, setInputWord] = useState("")
+  const [guess, setGuess] = useState("")
 
   const rows = [1, 2, 3, 4, 5, 6] // <-- Data from state
-  const renderedRows = rows.map(row => <Row key={row} />) // State passed as props or accessed in each Row component?
+  const renderedRows = rows.map(row => <Row key={row} guess={guess} />) // State passed as props or accessed in each Row component?
   
+  const submitGuess = (e) => {
+    e.preventDefault()
+    setGuess(inputWord)
+    setInputWord("")
+  }
+
   return (
     <>
       <div className="main-container">
         <h2>Main Container</h2>
         {renderedRows}
       </div>
-      <input
-        id="main-input"
-        value={inputWord}
-        onChange={(e) => setInputWord(e.target.value)}
-      />
+      <form onSubmit={submitGuess}>
+        <input
+          id="main-input"
+          type="text"
+          value={inputWord}
+          onChange={(e) => setInputWord(e.target.value)}
+        />
+      </form>
     </>
   )
 }
