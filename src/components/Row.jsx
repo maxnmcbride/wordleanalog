@@ -6,9 +6,7 @@ const Row = (guess) => {
     const testWord = "testy"
 //  console.log(guess)
     for (let i = 0; i < guess.length; i++) {
-        // if (inputWord) {
-            letterVals[i] = guess[i].toUpperCase()
-        // }
+        letterVals[i] = guess[i].toUpperCase()
     }
 
     const letterBoxes = letterVals.map((letter, index) => <LetterBox key={index} letter={letter} />)
