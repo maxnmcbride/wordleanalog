@@ -19,16 +19,19 @@ function App() {
     <>
       <div className="main-container">
         <h2>Main Container</h2>
+        <div className="form-container">
+          <label>Type your guess...</label>
+          <form onSubmit={submitGuess}>
+            <input
+              id="main-input"
+              type="text"
+              value={inputWord}
+              onChange={(e) => setInputWord(e.target.value)}
+              />
+          </form>
+        </div>
         {renderedRows}
       </div>
-      <form onSubmit={submitGuess}>
-        <input
-          id="main-input"
-          type="text"
-          value={inputWord}
-          onChange={(e) => setInputWord(e.target.value)}
-        />
-      </form>
     </>
   )
 }
