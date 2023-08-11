@@ -1,15 +1,14 @@
-import LetterBox from "./letterBox"
+import LetterBox from "./LetterBox"
 
 const Row = (guess) => {
     // const letterVals = ["A", "B", "C", "D", "E"] // <-- State data
     const letterVals = ["", "", "", "", ""]
-    const testWord = "testy"
-//  console.log(guess)
-    for (let i = 0; i < guess.length; i++) {
-        letterVals[i] = guess[i].toUpperCase()
-    }
+    
+    let letterBoxes = letterVals.map((letter, index) => <LetterBox key={index} letter={letter} />)
 
-    const letterBoxes = letterVals.map((letter, index) => <LetterBox key={index} letter={letter} />)
+    if (guess.guess) {
+        letterBoxes = guess.guess.map((letter, index) => <LetterBox key={index} letter={letter} />)
+    }
 
     return (
         <div className="letter-row">
