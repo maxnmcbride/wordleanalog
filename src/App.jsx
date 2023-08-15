@@ -27,6 +27,8 @@ function App() {
             <input
               id="main-input"
               type="text"
+              minLength="5"
+              maxLength="5"
               value={inputWord}
               onChange={e => setInputWord(e.target.value)}
               />
