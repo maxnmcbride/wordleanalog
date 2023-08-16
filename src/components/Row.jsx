@@ -1,14 +1,16 @@
+import { useSelector } from "react-redux/es/hooks/useSelector"
 import LetterBox from "./LetterBox"
 
-const Row = (guess) => {
-    // const letterVals = ["A", "B", "C", "D", "E"] // <-- State data
-    const letterVals = ["", "", "", "", ""]
-    
-    let letterBoxes = letterVals.map((letter, index) => <LetterBox key={index} letter={letter} />)
+const Row = () => {
+    const guess = useSelector(state => state.guesses[0])
 
-    if (guess.guess) {
-        letterBoxes = guess.guess.map((letter, index) => <LetterBox key={index} letter={letter} />)
-    }
+    const tempLetters = ["", "", "", "", ""]
+    
+    let letterBoxes = guess.letterVals.map((letter, index) => <LetterBox key={index} letter={letter} />)
+
+    // if (guess.guess) {
+    //     letterBoxes = guess.guess.map((letter, index) => <LetterBox key={index} letter={letter} />)
+    // }
 
     return (
         <div className="letter-row">
