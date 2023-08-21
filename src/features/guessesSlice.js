@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = [
-    {id: '1', letterVals: ["T", "E", "S", "T", "Y"]}
+    {id: '1', letterVals: ["", "", "", "", ""]}
 ]
 
 const guessesSlice = createSlice({

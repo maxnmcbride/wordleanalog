@@ -9,20 +9,18 @@ function App() {
   const dispatch = useDispatch()
 
   const [inputWord, setInputWord] = useState("")
-  // const [guess, setGuess] = useState(null)
 
-  const rows = [0, 1, 2, 3, 4, 5] // <-- Data from state
-  const renderedRows = rows.map(row => <Row key={row} />) // State passed as props or accessed in each Row component?
+  const rows = [1, 2, 3, 4, 5, 6] // <-- Data from state?
+  const renderedRows = rows.map(row => <Row key={row} guessIndex={row} />)
   
   const submitGuess = (e) => {
     e.preventDefault()
-    let newGuess = []
-    for (let i in inputWord) newGuess.push(inputWord[i].toUpperCase())
-    // setGuess(newGuess)
+    let letterVals = []
+    for (let i in inputWord) letterVals.push(inputWord[i].toUpperCase())
     dispatch(
       addGuess({
         id: nanoid(),
-        newGuess
+        letterVals
       })
     )
     setInputWord("")
