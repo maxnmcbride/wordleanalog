@@ -8,7 +8,12 @@ const initialState = [
 const guessesSlice = createSlice({
     name: 'guesses',
     initialState,
-    reducers: {}
+    reducers: {
+        addGuess(state, action) {
+            state.push(action.payload)
+        }
+    }
 })
 
+export const { addGuess } = guessesSlice.actions
 export default guessesSlice.reducer
