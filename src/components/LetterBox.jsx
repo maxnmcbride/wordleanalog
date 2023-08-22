@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux/es/hooks/useSelector"
 
-const LetterBox = (letter) => {
+const LetterBox = (letter, letterIndex) => {
     // TODO: state variable to control box color
 
     const word = useSelector(state => state.words[0].word)
-    // console.log(word)
+    // console.log(word.includes(letter.letter))
+    // console.log(letter, 'letter')
+    // console.log(letterIndex)
+
 
     return (
         <div className="letter-box">
