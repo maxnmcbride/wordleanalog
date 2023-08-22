@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialWord = [
+const initialState = [
   {id: '1', word: "TESTY"}
 ]
 
 const wordsSlice = createSlice({
   name: 'words',
-  initialWord,
+  initialState,
   reducers: {
       addWord(state, action) {
           state.push(action.payload)
