@@ -1,19 +1,28 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { nanoid } from '@reduxjs/toolkit'
+import { addGuess } from './features/guessesSlice'
 import "./App.css"
 import Row from "./components/Row"
 
 function App() {
-  const [inputWord, setInputWord] = useState("")
-  const [guess, setGuess] = useState(null)
+  const dispatch = useDispatch()
 
-  const rows = [0, 1, 2, 3, 4, 5] // <-- Data from state
-  const renderedRows = rows.map(row => <Row key={row} />) // State passed as props or accessed in each Row component?
+  const [inputWord, setInputWord] = useState("")
+
+  const rows = [1, 2, 3, 4, 5, 6] // <-- Data from state?
+  const renderedRows = rows.map(row => <Row key={row} guessIndex={row} />)
   
   const submitGuess = (e) => {
     e.preventDefault()
-    let newGuess = []
-    for (let i in inputWord) newGuess.push(inputWord[i].toUpperCase())
-    setGuess(newGuess)
+    let letterVals = []
+    for (let i in inputWord) letterVals.push(inputWord[i].toUpperCase())
+    dispatch(
+      addGuess({
+        id: nanoid(),
+        letterVals
+      })
+    )
     setInputWord("")
   }
 
