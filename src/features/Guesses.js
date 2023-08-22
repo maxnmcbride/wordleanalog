@@ -1,1 +1,0 @@
-// React component to render guess UI
