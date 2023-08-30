@@ -1,12 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 import { addGuess } from './features/guessesSlice'
+import { addWord } from './features/wordsSlice'
 import "./App.css"
 import Row from "./components/Row"
 
 function App() {
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetch("https://random-word-api.herokuapp.com/word?length=5")
+    .then(r => r.json())
+    .then(word => dispatch(
+      addWord({
+        id: nanoid(),
+        word
+      })
+    ))
+  }, [])
 
   const [inputWord, setInputWord] = useState("")
 
