@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux/es/hooks/useSelector"
-import LetterBox from "./LetterBox"
+import LetterBox from "./letterBox"
 
 const Row = ({guessIndex}) => {
     const guesses = useSelector(state => state.guesses)
 
     const tempLetters = ["", "", "", "", ""]
 
-    let letterBoxes = tempLetters.map((letter, index) => 
+    let letterBoxes = tempLetters.map((letter, index) =>    
         <LetterBox 
             key={index} 
             letter={letter}
@@ -23,7 +23,6 @@ const Row = ({guessIndex}) => {
             />
         )
     }
-
 
     return (
         <div className="letter-row">
