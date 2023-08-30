@@ -5,6 +5,8 @@ const LetterBox = ({letter, letterIndex}) => {
 
     let bgColor = ""
 
+    if (letter !== "") bgColor = "grey"
+
     if (letter !== "" && word.includes(letter)) {
         bgColor = "goldenrod" // #B59F3B <-- Official Wordle™ color
         if (word[letterIndex] === letter) {
