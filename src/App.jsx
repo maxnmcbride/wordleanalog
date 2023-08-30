@@ -12,12 +12,15 @@ function App() {
   useEffect(() => {
     fetch("https://random-word-api.herokuapp.com/word?length=5")
     .then(r => r.json())
-    .then(word => dispatch(
-      addWord({
-        id: nanoid(),
-        word
-      })
-    ))
+    .then(str => {
+      const word = str[0].toUpperCase()
+        dispatch(
+          addWord({
+            id: nanoid(),
+            word
+          })
+        )}
+    )
   }, [])
 
   const [inputWord, setInputWord] = useState("")

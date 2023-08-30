@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux/es/hooks/useSelector"
 
 const LetterBox = ({letter, letterIndex}) => {
-    const word = useSelector(state => state.words[0].word)
+    const word = useSelector(state => state.words[state.words.length - 1].word)
 
     let bgColor = ""
 
-    if (letter !== "") bgColor = "grey"
+    if (letter !== "" && !word.includes(letter)) bgColor = "grey"
 
     if (letter !== "" && word.includes(letter)) {
         bgColor = "goldenrod" // #B59F3B <-- Official Wordle™ color
