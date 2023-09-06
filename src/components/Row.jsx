@@ -4,6 +4,8 @@ import LetterBox from "./letterBox"
 const Row = ({guessIndex}) => {
     const guesses = useSelector(state => state.guesses)
 
+    const guessCount = {}
+
     const tempLetters = ["", "", "", "", ""]
 
     let letterBoxes = tempLetters.map((letter, index) =>    
@@ -15,7 +17,14 @@ const Row = ({guessIndex}) => {
     )
 
     if (guesses.hasOwnProperty(guessIndex)) {
-        letterBoxes = guesses[guessIndex].letterVals.map((letter, index) =>         
+        const guess = guesses[guessIndex].letterVals
+
+        for (let i = 0; i < guess.length; i++) {
+            if (guess[i] in guessCount) guessCount[guess[i]] += 1
+            else guessCount[guess[i]] = 1
+        }
+        
+        letterBoxes = guess.map((letter, index) =>         
             <LetterBox 
                 key={index} 
                 letter={letter}

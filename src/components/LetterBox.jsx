@@ -3,8 +3,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector"
 const LetterBox = ({letter, letterIndex}) => {
     const wordData = useSelector(state => state.words[state.words.length - 1])
     const word = wordData.word
-
-    console.log(wordData.letterCount)
+    const letterCount = wordData.letterCount
 
     let bgColor = ""
 
