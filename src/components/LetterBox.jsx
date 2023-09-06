@@ -4,7 +4,7 @@ const LetterBox = ({letter, letterIndex}) => {
     const wordData = useSelector(state => state.words[state.words.length - 1])
     const word = wordData.word
 
-    console.log(wordData)
+    console.log(wordData.letterCount)
 
     let bgColor = ""
 

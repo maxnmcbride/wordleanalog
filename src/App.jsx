@@ -15,17 +15,17 @@ function App() {
     .then(str => {
       const word = str[0].toUpperCase()
 
-      const lettterCount = {}
+      const letterCount = {}
       for (let i = 0; i < word.length; i++) {
-        if (word[i] in lettterCount) lettterCount[word[i]] += 1
-        else lettterCount[word[i]] = 1
+        if (word[i] in letterCount) letterCount[word[i]] += 1
+        else letterCount[word[i]] = 1
       }
       
       dispatch(
         addWord({
           id: nanoid(),
           word,
-          lettterCount
+          letterCount
         })
       )}
     )
