@@ -14,6 +14,7 @@ function App() {
     .then(r => r.json())
     .then(str => {
       const word = str[0].toUpperCase()
+      console.log(word)
 
       const letterCount = {}
       for (let i = 0; i < word.length; i++) {
