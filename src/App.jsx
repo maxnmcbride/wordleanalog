@@ -14,12 +14,20 @@ function App() {
     .then(r => r.json())
     .then(str => {
       const word = str[0].toUpperCase()
-        dispatch(
-          addWord({
-            id: nanoid(),
-            word
-          })
-        )}
+
+      const lettterCount = {}
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] in lettterCount) lettterCount[word[i]] += 1
+        else lettterCount[word[i]] = 1
+      }
+      
+      dispatch(
+        addWord({
+          id: nanoid(),
+          word,
+          lettterCount
+        })
+      )}
     )
   }, [])
 
