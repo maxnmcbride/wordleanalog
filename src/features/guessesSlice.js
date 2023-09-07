@@ -11,9 +11,12 @@ const guessesSlice = createSlice({
     reducers: {
         addGuess(state, action) {
             state.push(action.payload)
+        },
+        resetGuesses(state) {
+            return state.filter(guess => guess.id === '1')
         }
     }
 })
 
-export const { addGuess } = guessesSlice.actions
+export const { addGuess, resetGuesses } = guessesSlice.actions
 export default guessesSlice.reducer

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
-import { addGuess } from './features/guessesSlice'
+import { addGuess, resetGuesses } from './features/guessesSlice'
 import { addWord } from './features/wordsSlice'
 import "./App.css"
 import Row from "./components/Row"
@@ -9,7 +9,7 @@ import Row from "./components/Row"
 function App() {
   const dispatch = useDispatch()
 
- const getWord = () => {
+  const getWord = () => {
     fetch("https://random-word-api.herokuapp.com/word?length=5")
     .then(r => r.json())
     .then(str => {
@@ -40,19 +40,23 @@ function App() {
   
   const submitGuess = (e) => {
     e.preventDefault()
-    let letterVals = []
+
+    const letterVals = []
     for (let i in inputWord) letterVals.push(inputWord[i].toUpperCase())
+
     dispatch(
       addGuess({
         id: nanoid(),
         letterVals
       })
     )
+
     setInputWord("")
   }
 
   const handleReset = () => {
-    console.log('OINK')
+    dispatch(resetGuesses())
+    getWord()
   }
 
   return (
