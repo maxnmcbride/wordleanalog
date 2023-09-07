@@ -50,10 +50,14 @@ function App() {
     setInputWord("")
   }
 
+  const handleReset = () => {
+    console.log('OINK')
+  }
+
   return (
     <>
       <div className="main-container">
-        <h2>Main Container</h2>
+        <h2>Welcome to the Wordle Analog</h2>
         <div className="form-container">
           <label>Type your guess...</label>
           <form onSubmit={submitGuess}>
@@ -68,6 +72,7 @@ function App() {
           </form>
         </div>
         {renderedRows}
+        <button onClick={handleReset}>Reset</button>
       </div>
     </>
   )
