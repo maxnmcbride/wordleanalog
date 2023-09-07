@@ -9,7 +9,7 @@ import Row from "./components/Row"
 function App() {
   const dispatch = useDispatch()
 
-  useEffect(() => {
+ const getWord = () => {
     fetch("https://random-word-api.herokuapp.com/word?length=5")
     .then(r => r.json())
     .then(str => {
@@ -29,8 +29,9 @@ function App() {
           letterCount
         })
       )}
-    )
-  }, [])
+  )}
+
+  useEffect(getWord, [])
 
   const [inputWord, setInputWord] = useState("")
 
