@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 import { addGuess, resetGuesses } from './features/guessesSlice'
 import { addWord } from './features/wordsSlice'
-import "./App.css"
 import Row from "./components/Row"
+import "./App.css"
 
 function App() {
   const dispatch = useDispatch()
@@ -12,8 +12,8 @@ function App() {
   const getWord = () => {
     fetch("https://random-word-api.herokuapp.com/word?length=5")
     .then(r => r.json())
-    .then(str => {
-      const word = str[0].toUpperCase()
+    .then(arr => {
+      const word = arr[0].toUpperCase()
       console.log(word)
 
       const letterCount = {}
