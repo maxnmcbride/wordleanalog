@@ -1,8 +1,15 @@
+import { useState } from "react"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import LetterBox from "./letterBox"
 
 const Row = ({guessIndex}) => {
     const guesses = useSelector(state => state.guesses)
+
+    const [correctBoxes, setCorrectBoxes] = useState(new Set())
+    const addCorrect = (index) => {
+        const updatedBoxes = correctBoxes.add(index)
+        setCorrectBoxes(updatedBoxes)
+    }
 
     // const guessCount = {}
 
@@ -29,9 +36,13 @@ const Row = ({guessIndex}) => {
                 key={index} 
                 letter={letter}
                 letterIndex={index}
+                addCorrect={addCorrect}
             />
         )
     }
+
+    if (correctBoxes.size === 5) window.alert("You won!")
+    console.log(correctBoxes)
 
     return (
         <div className="letter-row">

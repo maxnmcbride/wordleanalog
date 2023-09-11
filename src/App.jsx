@@ -64,13 +64,13 @@ function App() {
       <div className="main-container">
         <h2>Welcome to the Wordle Analog</h2>
         <div className="form-container">
-          <label>Type your guess...</label>
           <form onSubmit={submitGuess}>
             <input
               id="main-input"
               type="text"
               minLength="5"
               maxLength="5"
+              placeholder="Type your guess..."
               value={inputWord}
               onChange={e => setInputWord(e.target.value)}
               />
