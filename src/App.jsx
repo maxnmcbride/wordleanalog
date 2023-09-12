@@ -33,10 +33,21 @@ function App() {
 
   useEffect(getWord, [])
 
+  const handleReset = () => {
+    dispatch(resetGuesses())
+    getWord()
+  }
+
   const [inputWord, setInputWord] = useState("")
 
   const rows = [1, 2, 3, 4, 5, 6] // <-- Data from state?
-  const renderedRows = rows.map(row => <Row key={row} guessIndex={row} />)
+  const renderedRows = rows.map(row =>
+    <Row
+      key={row}
+      guessIndex={row}
+      handleReset={handleReset}
+    />
+  )
   
   const submitGuess = (e) => {
     e.preventDefault()
@@ -52,11 +63,6 @@ function App() {
     )
 
     setInputWord("")
-  }
-
-  const handleReset = () => {
-    dispatch(resetGuesses())
-    getWord()
   }
 
   return (
