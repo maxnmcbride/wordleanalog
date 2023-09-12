@@ -6,6 +6,7 @@ const Row = ({guessIndex, handleReset}) => {
     const guesses = useSelector(state => state.guesses)
 
     const [correctBoxes, setCorrectBoxes] = useState(new Set())
+
     const addCorrect = (index) => {
         setTimeout(() => {
             const updatedBoxes = correctBoxes.add(index)
@@ -42,6 +43,12 @@ const Row = ({guessIndex, handleReset}) => {
                 addCorrect={addCorrect}
             />
         )
+    }
+
+    if (guesses.hasOwnProperty(guessIndex) && guessIndex === 6 && correctBoxes.size < 5) {
+        setTimeout(() => {
+            alert("Game over! Try again?", handleReset())
+        }, 500)
     }
 
     return (
