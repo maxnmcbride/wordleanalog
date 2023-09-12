@@ -7,8 +7,11 @@ const Row = ({guessIndex}) => {
 
     const [correctBoxes, setCorrectBoxes] = useState(new Set())
     const addCorrect = (index) => {
-        const updatedBoxes = correctBoxes.add(index)
-        setCorrectBoxes(updatedBoxes)
+        setTimeout(() => {
+            const updatedBoxes = correctBoxes.add(index)
+            setCorrectBoxes(updatedBoxes)
+            if (correctBoxes.size === 5) window.alert("You won!")
+        }, 500)
     }
 
     // const guessCount = {}
@@ -41,8 +44,7 @@ const Row = ({guessIndex}) => {
         )
     }
 
-    if (correctBoxes.size === 5) window.alert("You won!")
-    console.log(correctBoxes)
+    
 
     return (
         <div className="letter-row">
