@@ -14,7 +14,7 @@
 }
 
 .form-container {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .letter-row {
@@ -26,8 +26,7 @@
   border-width: 4px;
   border-color: gray;
   border-radius: 20px; */
-  /* padding: 10px;
-  margin-bottom: 5px; */
+  margin: 5px;
 }
 
 .letter-box {
@@ -38,8 +37,10 @@
   height: 100px;
   border-style: solid;
   border-width: 2px;
-  border-color: gray;
+  border-color: white;
   border-radius: 5%;
+  margin: 0px 5px 10px 5px;
+  padding: 5px;
 }
 
 .display-letter {
@@ -52,5 +53,21 @@
 } */
 
 #wordle-container {
-  border: 1px solid white;
+  border: 2px solid white;
+  padding: 20px;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 16% 16% 16% 16% 16% 16%;
+  border: 2px solid white;
+  padding: 50px;
+}
+
+.grid-row-1 {
+  grid-row-start: 1;
+  border: 2px solid white;
+  margin: 0px 5px 10px 5px;
+  padding: 5px;
 }

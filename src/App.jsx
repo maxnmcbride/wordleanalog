@@ -53,7 +53,7 @@ function App() {
   return (
     <>
       <div className="main-container">
-        <h2>Main Container</h2>
+        <h2>WORDLE ANALOG</h2>
         <div className="form-container">
           <label>Type your guess...</label>
           <form onSubmit={submitGuess}>
