@@ -67,7 +67,9 @@ function App() {
               />
           </form>
         </div>
+        <div id="wordle-container">
         {renderedRows}
+        </div>
       </div>
     </>
   )
