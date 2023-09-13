@@ -79,7 +79,7 @@ function App() {
               placeholder="Type your guess..."
               value={inputWord}
               onChange={e => setInputWord(e.target.value)}
-              />
+            />
           </form>
         </div>
         {renderedRows}
