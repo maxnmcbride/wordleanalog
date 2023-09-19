@@ -2,7 +2,7 @@
   "name": "wordleanalog",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://maxnmcbride.github.io/wordleanalog",
+  "homepage": "https://maxnmcbride.github.io/wordleanalog/index.html",
   "type": "module",
   "scripts": {
     "dev": "vite",
