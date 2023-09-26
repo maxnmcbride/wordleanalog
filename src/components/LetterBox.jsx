@@ -10,9 +10,9 @@ const LetterBox = ({letter, letterIndex, addCorrect}) => {
     if (letter !== "" && !word.includes(letter)) bgColor = "grey"
 
     if (letter !== "" && word.includes(letter)) {
-        if (letterIndex <= letterCount[letter]) {
-            bgColor = "goldenrod" // #B59F3B <-- Official Wordle™ color
-        }
+        // if (letterIndex <= letterCount[letter] || letterIndex >= letterCount[letter]){
+        //     bgColor = "goldenrod" // #B59F3B <-- Official Wordle™ color
+        // }
         if (word[letterIndex] === letter) {
             bgColor = "green"
             addCorrect(letterIndex)
